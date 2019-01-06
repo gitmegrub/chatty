@@ -8,6 +8,7 @@ $(function(){
 	var send_message = $("#send_message")
 	var send_username = $("#send_username")
 	var chatroom = $("#chatroom")
+	var feedback = $("#feedback")
 
 	//emit user 
 	send_username.click(function() {
@@ -24,7 +25,18 @@ $(function(){
 
 	//listen on new message
 	socket.on("new_message", (data) => {
-		console.log(data) //appear on terminal
+		feedback.html(''); //remove typing feedback
+		message.val(''); //clear
 		chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
+	})
+
+	//emit typing
+	message.bind("keypress", () => {
+		socket.emit('typing')
+	})
+
+	//listen typing
+	socket.on('typing', (data) => {
+		feedback.html("<p><i>" + data.username + " is typing a message..." + "</i></p>" )
 	})
 });
