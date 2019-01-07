@@ -1,20 +1,4 @@
-Skip to content
- 
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- @gitmegrub Sign out
-6
-50 44 ngrt/simpleChatApp
- Code  Issues 2  Pull requests 1  Projects 0  Wiki  Insights
-simpleChatApp/public/style.css
-afe6659  on Dec 25, 2017
-@ngrt ngrt client and server sides ok
-     
-94 lines (78 sloc)  1.43 KB
 @mixin vertical-align {
   position: relative;
   top: 50%;
